@@ -1,20 +1,20 @@
-describe("Test Broken Image", () => {
-  it("", () => {
-    //not working
+describe('Interacting with Virtual Assistant', () => {
+  it('Clicks on Virtual Assistant button and interacts with Chatbot', () => {
+    cy.visit('https://www.boohoo.com/page/faq.html#faq');
 
-    cy.visit("https://www.boohoo.com/womens");
-    // 1. Select all image (`img`) elements on the page.
-    cy.get("img").each(($img) => {
-      // 2. Scroll the image into view and check if it's visible.
-      cy.wrap($img).scrollIntoView().should("be.visible");
+    // Find and click the Virtual Assistant button
+    cy.get('button.l-customer_service-button.egain-btn').click();
 
-      // 3. Ensure the natural width and height is greater than 0.
-      //   expect($img[0].naturalWidth).to.be.greaterThan(0);
-      //   expect($img[0].naturalHeight).to.be.greaterThan(0);
+    // Wait for the iframe to load
+    cy.get('iframe#egain-chat-iframe').should('be.visible').then(($iframe) => {
+      // Switch to the iframe context
+      const iframe = $iframe.contents();
+      cy.wrap(iframe).as('chatIframe');
 
-      expect($img[0].naturalWidth).to.be.greaterThan(0);
-      expect($img[0].naturalHeight).to.be.greaterThan();
-      resolve();
+      // Interact with elements inside the iframe
+      cy.get('@chatIframe').find('input#chat_input').type('Hello, Chatbot!{enter}');
+      cy.get('@chatIframe').find('div#chat_display').should('contain', 'Hello there, how can I assist you today?');
     });
   });
 });
+
