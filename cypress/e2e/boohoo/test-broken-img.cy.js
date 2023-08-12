@@ -1,4 +1,5 @@
 describe('Interacting with Virtual Assistant', () => {
+  beforeEach(() => {
   it('Clicks on Virtual Assistant button and interacts with Chatbot', () => {
     cy.visit('https://www.boohoo.com/page/faq.html#faq');
 
