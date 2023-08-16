@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 describe('Iterate over elements', () => {
-    it.only('Log information over haircare product', () => {
+    it('Log information over haircare product', () => {
         cy.visit('https://www.automationteststore.com/')
         cy.get("a[href*='product/category&path']").contains('Hair Care').click()
 
