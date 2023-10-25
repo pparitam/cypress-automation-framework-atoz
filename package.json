@@ -19,8 +19,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/mocha-teamcity-reporter": "^1.0.0",
     "@cypress/xpath": "^2.0.3",
-    "cypress": "^12.17.4"
+    "cypress": "^12.17.4",
+    "mochawesome-merge": "^4.3.0"
   },
   "dependencies": {
     "@cypress/request": "^3.0.0"
