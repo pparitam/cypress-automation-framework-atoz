@@ -21,7 +21,7 @@
   "devDependencies": {
     "@cypress/mocha-teamcity-reporter": "^1.0.0",
     "@cypress/xpath": "^2.0.3",
-    "cypress": "^12.17.4",
+    "cypress": "^13.6.0",
     "mochawesome-merge": "^4.3.0"
   },
   "dependencies": {
